@@ -23,10 +23,11 @@
         }
 
         body {
-            font-family: 'Prompt', sans-serif; /* อัปเดตฟอนต์ตรงนี้ */
+            font-family: 'Prompt', sans-serif; 
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.7;
+            overflow-x: hidden; /* ป้องกันไม่ให้หน้าเว็บเลื่อนซ้ายขวาตอนแสดงแอนิเมชัน */
         }
 
         .container {
@@ -45,6 +46,11 @@
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            /* ลูกเล่น 1: ชื่อแบบไล่สี (Gradient) */
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         header .subtitle {
@@ -95,12 +101,14 @@
             padding: 2rem;
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
+        /* ลูกเล่น 2: แสงเรืองแสงตอนเอาเมาส์ชี้การ์ด */
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+            border-color: var(--primary-color);
         }
 
         .card h3 {
@@ -167,6 +175,14 @@
             padding: 2rem;
             border: 1px solid var(--border-color);
             overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* ลูกเล่น 2: แสงเรืองแสงตอนเอาเมาส์ชี้กล่องโปรเจกต์ */
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+            border-color: rgba(0, 123, 255, 0.5);
         }
 
         .project-header {
@@ -225,12 +241,23 @@
             grid-template-columns: 1fr 1fr;
         }
 
+        /* ลูกเล่น 3: รูปภาพซูมเบาๆ ตอนเอาเมาส์ชี้ */
+        .project-visuals figure {
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
         .project-visuals img {
             width: 100%;
             height: auto;
             border-radius: 4px;
             border: 1px solid var(--border-color);
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .project-visuals img:hover {
+            transform: scale(1.05);
         }
         
         .project-visuals .main-visual {
@@ -245,15 +272,17 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: 500;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             margin-top: 1rem;
         }
 
+        /* ลูกเล่น 2: ปุ่มสว่างและขยายร่างนิดๆ */
         .btn:hover {
             background-color: var(--secondary-color);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+            transform: scale(1.05);
         }
 
-        /* --- Video Section Styles --- */
         #video-presentation {
             text-align: center;
             padding: 4rem 0;
@@ -268,7 +297,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             border: 1px solid var(--border-color);
             position: relative;
-            padding-bottom: 56.25%; /* อัตราส่วน 16:9 */
+            padding-bottom: 56.25%; 
             height: 0;
         }
 
@@ -292,6 +321,30 @@
             margin-bottom: 1rem;
         }
 
+        /* ลูกเล่น 4: แอนิเมชันตอนเปิดหน้าเว็บให้ข้อมูลลอยขึ้นมาทีละส่วน */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header, #about, #skills, #vision, #projects, #video-presentation {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        header { animation-delay: 0.1s; }
+        #about { animation-delay: 0.3s; }
+        #skills { animation-delay: 0.5s; }
+        #vision { animation-delay: 0.6s; }
+        #projects { animation-delay: 0.7s; }
+        #video-presentation { animation-delay: 0.9s; }
+
         @media (max-width: 992px) {
             #about .about-content {
                 grid-template-columns: 1fr;
@@ -302,171 +355,159 @@
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 3rem 1rem;
-            }
-            header h1 {
-                font-size: 2.5rem;
-            }
-            header .subtitle {
-                font-size: 1.2rem;
-            }
-            .container {
-                padding: 1rem;
-            }
-            section {
-                padding: 3rem 0;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
+            header { padding: 3rem 1rem; }
+            header h1 { font-size: 2.5rem; }
+            header .subtitle { font-size: 1.2rem; }
+            .container { padding: 1rem; }
+            section { padding: 3rem 0; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 
 </head><body>
-<header data-cid="HAigaH">
-<div class="container" data-cid="LqnNck">
-<h1 id="section-1" data-cid="ltH3uY">พงศธร ทองจุล (ปอ)</h1>
-<p class="subtitle" data-cid="dYp4E7">Game Developer &amp; Content Creator</p>
-<p class="intro-text" data-cid="bcJC45">
+<header>
+<div class="container">
+<h1>พงศธร ทองจุล (ปอ)</h1>
+<p class="subtitle">Game Developer &amp; Content Creator</p>
+<p class="intro-text">
                 นักศึกษาปี 3 ม.ศรีปทุม สาขาเกมฯ ผมเป็นนักพัฒนาที่หลงใหลในการสร้างระบบเกมด้วย Unity และเป็นครีเอเตอร์ที่รู้วิธีดึงดูดคนดู ผมคือคนกลางที่เชื่อมต่อระหว่างตรรกะทางเทคนิคและความคิดสร้างสรรค์
             </p>
 </div>
 </header>
-<main class="container" data-cid="Xr3nWP">
-<section id="about" data-cid="U2Davn">
-<h2 class="section-title" id="section-1" data-cid="NLtRwL">เกี่ยวกับผม</h2>
-<div class="about-content" data-cid="9aeSQU">
-<div class="contact-info" data-cid="wLPceY">
-<div class="card" data-cid="1bJeLx">
-<h3 id="section-1-1" data-cid="s3cH_Y">ข้อมูลส่วนตัวและการศึกษา</h3>
-<ul data-cid="h8pJBt">
-<li data-cid="pHapM2">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-cid="fkr_Rd"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" data-cid="EomZNe"></path></svg>
-<span data-cid="tGRDx-">เกิดวันที่: 07/07/2004</span>
+<main class="container">
+<section id="about">
+<h2 class="section-title">เกี่ยวกับผม</h2>
+<div class="about-content">
+<div class="contact-info">
+<div class="card">
+<h3>ข้อมูลส่วนตัวและการศึกษา</h3>
+<ul>
+<li>
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"></path></svg>
+<span>เกิดวันที่: 07/07/2004</span>
 </li>
-<li data-cid="HSPnoA">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-cid="d1qDpD"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" data-cid="_rmYmG"></path></svg>
-<span data-cid="22Du0W">โทร: 064-093-9512</span>
+<li>
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+<span>โทร: 064-093-9512</span>
 </li>
-<li data-cid="n1hTHM">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-cid="3R6kLu"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" data-cid="J5J0g9"></path></svg>
-<span data-cid="DX1uOL">อีเมล: pongsatorn.thn@spumail.net</span>
+<li>
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+<span>อีเมล: pongsatorn.thn@spumail.net</span>
 </li>
-<li data-cid="94g2yT">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-cid="y_b94B"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" data-cid="WNxqD8"></path></svg>
-<span data-cid="_AoY1e">ที่อยู่: สมุทรปราการ 10540</span>
+<li>
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+<span>ที่อยู่: สมุทรปราการ 10540</span>
 </li>
 </ul>
 </div>
 </div>
-<div class="education-info" data-cid="7tApIJ">
-<div class="card" data-cid="DxMv4i">
-<h3 id="section-1-2" data-cid="CwfDGF">การศึกษา</h3>
-<p data-cid="f3sUyF"><strong data-cid="-bwrQL">มหาวิทยาลัยศรีปทุม (SPU)</strong> | 2023 – ปัจจุบัน</p>
-<p class="editor-empty-block" data-cid="LRcBuQ">
-                            ปริญญาตรีศิลปกรรมศาสตรบัณฑิต สาขาสื่อดิจิทัล<br data-cid="k2rl92"/>
-                            วิชาเอก: การออกแบบอินเทอร์แอคทีฟและเกม<br data-cid="XXmFN4"/>
+<div class="education-info">
+<div class="card">
+<h3>การศึกษา</h3>
+<p><strong>มหาวิทยาลัยศรีปทุม (SPU)</strong> | 2023 – ปัจจุบัน</p>
+<p class="editor-empty-block">
+                            ปริญญาตรีศิลปกรรมศาสตรบัณฑิต สาขาสื่อดิจิทัล<br/>
+                            วิชาเอก: การออกแบบอินเทอร์แอคทีฟและเกม<br/>
                             เกรดเฉลี่ยสะสม: 3.40 (กำลังศึกษาชั้นปีที่ 3)
                         </p>
 </div>
 </div>
 </div>
 </section>
-<section id="skills" data-cid="Lk1Yby">
-<h2 class="section-title" id="section-2" data-cid="34bP9s">ทักษะของผม (Skills)</h2>
-<div class="grid-2-col" data-cid="c6hL7h">
-<div class="card" data-cid="EDPQS9">
-<h3 id="section-2-1" data-cid="w0J0Gc">Hard Skills</h3>
-<ul data-cid="FhVTZP">
-<li data-cid="s1GyoB"><strong data-cid="SpKy9o">Game Engine:</strong> Unity (Intermediate)</li>
-<li data-cid="DxcCYF"><strong data-cid="kHjx-j">Programming:</strong> C# (Object-Oriented Programming)</li>
-<li data-cid="ueczeL"><strong data-cid="Ih6u0L">Tools:</strong> AI Tools for Debugging &amp; Optimization (ChatGPT/Copilot)</li>
-<li data-cid="gA4GeN"><strong data-cid="et_iIh">Video Editing:</strong> Premiere Pro / CapCut (Expert)</li>
-<li data-cid="L9D2r5"><strong data-cid="NDi9q0">Platform:</strong> Roblox Studio &amp; Ecosystem</li>
+<section id="skills">
+<h2 class="section-title">ทักษะของผม (Skills)</h2>
+<div class="grid-2-col">
+<div class="card">
+<h3>Hard Skills</h3>
+<ul>
+<li><strong>Game Engine:</strong> Unity (Intermediate)</li>
+<li><strong>Programming:</strong> C# (Object-Oriented Programming)</li>
+<li><strong>Tools:</strong> AI Tools for Debugging &amp; Optimization (ChatGPT/Copilot)</li>
+<li><strong>Video Editing:</strong> Premiere Pro / CapCut (Expert)</li>
+<li><strong>Platform:</strong> Roblox Studio &amp; Ecosystem</li>
 </ul>
 </div>
-<div class="card" data-cid="Kw1DHT">
-<h3 id="section-2-2" data-cid="q2EU2X">Soft Skills</h3>
-<ul data-cid="MXWnM9">
-<li data-cid="tToZ3x"><strong data-cid="Q2z_J1">Fast Learner:</strong> เรียนรู้เทคโนโลยีใหม่ๆ ได้อย่างรวดเร็ว</li>
-<li data-cid="38joH2"><strong data-cid="YNtMrt">Creative Problem Solving:</strong> แก้ปัญหาด้วยไอเดียสร้างสรรค์</li>
-<li data-cid="t8FwVa"><strong data-cid="4VY48f">Storytelling:</strong> สามารถเล่าเรื่องราวให้น่าสนใจและติดตาม</li>
-<li data-cid="T_CabS"><strong data-cid="btKcZY">Adaptability:</strong> ปรับตัวเข้ากับสถานการณ์และเทคโนโลยีใหม่ๆ ได้ดี</li>
+<div class="card">
+<h3>Soft Skills</h3>
+<ul>
+<li><strong>Fast Learner:</strong> เรียนรู้เทคโนโลยีใหม่ๆ ได้อย่างรวดเร็ว</li>
+<li><strong>Creative Problem Solving:</strong> แก้ปัญหาด้วยไอเดียสร้างสรรค์</li>
+<li><strong>Storytelling:</strong> สามารถเล่าเรื่องราวให้น่าสนใจและติดตาม</li>
+<li><strong>Adaptability:</strong> ปรับตัวเข้ากับสถานการณ์และเทคโนโลยีใหม่ๆ ได้ดี</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="vision" data-cid="9zWkQb">
-<h2 class="section-title" id="section-3" data-cid="8x0-hH">วิสัยทัศน์และเป้าหมาย</h2>
-<p data-cid="BC6LC1">
+<section id="vision">
+<h2 class="section-title">วิสัยทัศน์และเป้าหมาย</h2>
+<p>
                 เพื่อนำทักษะด้านการพัฒนาเกม Unity และการสร้างคอนเทนต์ มาสร้างสรรค์ผลงานที่ไม่ใช่แค่ทำงานได้ดีทางเทคนิค แต่ยังสนุกและดึงดูดผู้ชม เป้าหมายของผมคือการเป็น Technical Creator ที่รอบด้านในอุตสาหกรรมสื่อและเกม
             </p>
 </section>
-<section id="projects" data-cid="6xqrys">
-<h2 class="section-title" id="section-4" data-cid="wdfzfK">ผลงานของผม</h2>
-<article class="project" data-cid="x3h3Nm">
-<div class="project-header" data-cid="1OCWJK">
-<h3 id="section-4-1" data-cid="YziUZ0">Survival Top-Down Game Project</h3>
-<div class="project-tags" data-cid="NyOJ7R">
-<span data-cid="aQLxds">Interactive Gameplay</span>
-<span data-cid="8sfzkH">Complex Inventory System</span>
-<span data-cid="icVzIc">Melee Combat</span>
-<span data-cid="yFaeAp">Unity</span>
-<span data-cid="cFSVIt">C#</span>
+<section id="projects">
+<h2 class="section-title">ผลงานของผม</h2>
+<article class="project">
+<div class="project-header">
+<h3>Survival Top-Down Game Project</h3>
+<div class="project-tags">
+<span>Interactive Gameplay</span>
+<span>Complex Inventory System</span>
+<span>Melee Combat</span>
+<span>Unity</span>
+<span>C#</span>
 </div>
 </div>
-<div class="project-content" data-cid="YWuA8J">
-<div class="project-description" data-cid="uFSivp">
-<h4 data-cid="32cUxy">เกี่ยวกับโปรเจกต์</h4>
-<p data-cid="cGSjs0">เกมแนวเอาชีวิตรอดสยองขวัญมุมมองจากด้านบน (Top-Down) ที่ได้รับแรงบันดาลใจจากเกม Darkwood ผมได้พัฒนาระบบกลไกหลักโดยเน้นการจัดการทรัพยากรและสร้างบรรยากาศที่กดดัน</p>
-<h4 data-cid="08FLZ1">รายละเอียดการพัฒนา</h4>
-<ul data-cid="1My5ev">
-<li data-cid="eueiUP"><strong data-cid="wQwbw8">Inventory System:</strong> พัฒนาระบบช่องเก็บของแบบ Grid-based โดยใช้ C# arrays และการจัดการ UI</li>
-<li data-cid="gYlLd2"><strong data-cid="cBUR2m">AI Behavior:</strong> เขียนโปรแกรมการค้นหาเส้นทาง (Pathfinding) และ State Machines (Idle, Chase, Attack) ของศัตรู</li>
-<li data-cid="cOPHJa"><strong data-cid="BfD8mP">Interactions:</strong> สร้างระบบปฏิสัมพันธ์แบบไดนามิกสำหรับการเก็บของ (Looting) และการตรวจสอบวัตถุ</li>
+<div class="project-content">
+<div class="project-description">
+<h4>เกี่ยวกับโปรเจกต์</h4>
+<p>เกมแนวเอาชีวิตรอดสยองขวัญมุมมองจากด้านบน (Top-Down) ที่ได้รับแรงบันดาลใจจากเกม Darkwood ผมได้พัฒนาระบบกลไกหลักโดยเน้นการจัดการทรัพยากรและสร้างบรรยากาศที่กดดัน</p>
+<h4>รายละเอียดการพัฒนา</h4>
+<ul>
+<li><strong>Inventory System:</strong> พัฒนาระบบช่องเก็บของแบบ Grid-based โดยใช้ C# arrays และการจัดการ UI</li>
+<li><strong>AI Behavior:</strong> เขียนโปรแกรมการค้นหาเส้นทาง (Pathfinding) และ State Machines (Idle, Chase, Attack) ของศัตรู</li>
+<li><strong>Interactions:</strong> สร้างระบบปฏิสัมพันธ์แบบไดนามิกสำหรับการเก็บของ (Looting) และการตรวจสอบวัตถุ</li>
 </ul>
 </div>
-<div class="project-visuals game-dev" data-cid="Jv3ZnI">
-<figure data-cid="m64Huv">
+<div class="project-visuals game-dev">
+<figure>
 <img src="game1.png" alt="ภาพหน้าจอการพัฒนาใน Unity Editor...">
 </figure>
-<figure data-cid="1dPC_E">
-<img alt="การออกแบบและจัดวางองค์ประกอบ UI ของเกม เช่น แถบพลังชีวิตและช่องเก็บของ" src="game2.png" data-cid="EnXYfV"/>
+<figure>
+<img alt="การออกแบบและจัดวางองค์ประกอบ UI ของเกม เช่น แถบพลังชีวิตและช่องเก็บของ" src="game2.png"/>
 </figure>
-<figure class="main-visual" data-cid="z00FZK">
-<img alt="โค้ด C# ของระบบ Inventory System ใน Visual Studio" src="game3.png" data-cid="vcIrWT"/>
+<figure class="main-visual">
+<img alt="โค้ด C# ของระบบ Inventory System ใน Visual Studio" src="game3.png"/>
 </figure>
-<figure class="main-visual" data-cid="h8fKGS">
-<img alt="โค้ด C# ของ PlayerController ที่จัดการการเคลื่อนไหวและสถานะของผู้เล่น" src="game4.png" data-cid="iZ_yGD"/>
+<figure class="main-visual">
+<img alt="โค้ด C# ของ PlayerController ที่จัดการการเคลื่อนไหวและสถานะของผู้เล่น" src="game4.png"/>
 </figure>
 </div>
 </div>
 </article>
-<article class="project" data-cid="O--oN-">
-<div class="project-header" data-cid="aPNA-2">
-<h3 id="section-4-2" data-cid="rz-Opn">Roblox Gaming Channel: PORGI CHANNEL</h3>
-<div class="project-tags" data-cid="_IiDLa">
-<span data-cid="MiVE2F">Content Creator</span>
-<span data-cid="24kxdd">Storytelling</span>
-<span data-cid="spQA1s">Entertain &amp; Engage</span>
-<span data-cid="jo_irk">Trend Catcher</span>
+<article class="project">
+<div class="project-header">
+<h3>Roblox Gaming Channel: PORGI CHANNEL</h3>
+<div class="project-tags">
+<span>Content Creator</span>
+<span>Storytelling</span>
+<span>Entertain &amp; Engage</span>
+<span>Trend Catcher</span>
 </div>
 </div>
-<div class="project-content" data-cid="BEk83p">
-<div class="project-description" data-cid="tN1DwP">
-<h4 data-cid="dVuedH">เกี่ยวกับช่อง</h4>
-<p data-cid="6fjK_Z">ผู้ก่อตั้งและสร้างสรรค์คอนเทนต์สำหรับช่อง YouTube ที่เน้นเกม Roblox ประสบความสำเร็จในการสร้างการเติบโตแบบไวรัลผ่านการเล่าเรื่องที่ขับเคลื่อนด้วยข้อมูล (Data-driven Storytelling) และการตัดต่อที่รวดเร็วซึ่งออกแบบมาเพื่อผู้ชม Gen Z โดยเฉพาะ</p>
-<h4 data-cid="Ps8Vqe">สถิติที่สำคัญ</h4>
-<ul data-cid="zSbGIN">
-<li data-cid="MmN_de"><strong data-cid="FCIXla">ผู้ติดตาม:</strong> 11,000+ คน</li>
-<li data-cid="rNmOld"><strong data-cid="Tpazta">ยอดการดูรวม:</strong> 2,000,000+ ครั้ง</li>
+<div class="project-content">
+<div class="project-description">
+<h4>เกี่ยวกับช่อง</h4>
+<p>ผู้ก่อตั้งและสร้างสรรค์คอนเทนต์สำหรับช่อง YouTube ที่เน้นเกม Roblox ประสบความสำเร็จในการสร้างการเติบโตแบบไวรัลผ่านการเล่าเรื่องที่ขับเคลื่อนด้วยข้อมูล (Data-driven Storytelling) และการตัดต่อที่รวดเร็วซึ่งออกแบบมาเพื่อผู้ชม Gen Z โดยเฉพาะ</p>
+<h4>สถิติที่สำคัญ</h4>
+<ul>
+<li><strong>ผู้ติดตาม:</strong> 11,000+ คน</li>
+<li><strong>ยอดการดูรวม:</strong> 2,000,000+ ครั้ง</li>
 </ul>
-<a class="btn" href="https://www.youtube.com/@porgichannel489" target="_blank" data-cid="d61Nuu">เยี่ยมชมช่อง YouTube</a>
+<a class="btn" href="https://www.youtube.com/@porgichannel489" target="_blank">เยี่ยมชมช่อง YouTube</a>
 </div>
-<div class="project-visuals" data-cid="bWJjwa">
-<figure data-cid="qycmkF">
-<img alt="ภาพหน้าจอช่อง YouTube 'PORGI CHANNEL' แสดงจำนวนผู้ติดตามและตัวอย่างวิดีโอ" src="YT.png" data-cid="6PVaq7"/>
+<div class="project-visuals">
+<figure>
+<img alt="ภาพหน้าจอช่อง YouTube 'PORGI CHANNEL' แสดงจำนวนผู้ติดตามและตัวอย่างวิดีโอ" src="YT.png"/>
 </figure>
 </div>
 </div>
@@ -481,10 +522,10 @@
 </section>
 
 </main>
-<footer data-cid="pLnunV">
-<div class="container" data-cid="xdLzdN">
-<img alt="ขอบคุณครับ - พงศธร ทองจุล" src="game5.png" data-cid="9PEwwr"/>
-<p data-cid="-1s6B-">© 2026 Pongsatorn Thongjul. All Rights Reserved.</p>
+<footer>
+<div class="container">
+<img alt="ขอบคุณครับ - พงศธร ทองจุล" src="game5.png"/>
+<p>© 2026 Pongsatorn Thongjul. All Rights Reserved.</p>
 </div>
 </footer>
 
