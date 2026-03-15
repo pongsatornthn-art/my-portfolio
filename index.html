@@ -14,6 +14,11 @@
             --text-color: #E0E0E0;
             --text-muted-color: #A0A0A0;
             --border-color: #333;
+            --navbar-height: 70px; /* ความสูงของเมนูด้านบน */
+        }
+
+        html {
+            scroll-behavior: smooth; /* ลูกเล่นเลื่อนหน้าเว็บแบบนุ่มนวล */
         }
 
         * {
@@ -27,8 +32,66 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.7;
-            overflow-x: hidden; /* ป้องกันไม่ให้หน้าเว็บเลื่อนซ้ายขวาตอนแสดงแอนิเมชัน */
+            overflow-x: hidden;
+            padding-top: var(--navbar-height); /* ดันเนื้อหาลงมาไม่ให้โดนเมนูบัง */
         }
+
+        /* --- Navbar Styles (แถบเมนูด้านบน) --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--navbar-height);
+            background-color: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* เส้นขีดเส้นใต้ตอนเอาเมาส์ชี้เมนู */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /* ---------------------------------- */
 
         .container {
             max-width: 1200px;
@@ -46,7 +109,6 @@
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            /* ลูกเล่น 1: ชื่อแบบไล่สี (Gradient) */
             background: linear-gradient(45deg, #00d2ff, #3a7bd5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -70,6 +132,7 @@
         section {
             padding: 4rem 0;
             border-bottom: 1px solid var(--border-color);
+            scroll-margin-top: var(--navbar-height); /* ชดเชยระยะให้เมนูไม่บังหัวข้อตอนกดลิงก์มา */
         }
 
         .section-title {
@@ -104,7 +167,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        /* ลูกเล่น 2: แสงเรืองแสงตอนเอาเมาส์ชี้การ์ด */
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
@@ -178,7 +240,6 @@
             transition: all 0.3s ease;
         }
 
-        /* ลูกเล่น 2: แสงเรืองแสงตอนเอาเมาส์ชี้กล่องโปรเจกต์ */
         .project:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
@@ -241,7 +302,6 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        /* ลูกเล่น 3: รูปภาพซูมเบาๆ ตอนเอาเมาส์ชี้ */
         .project-visuals figure {
             overflow: hidden;
             border-radius: 4px;
@@ -276,7 +336,6 @@
             margin-top: 1rem;
         }
 
-        /* ลูกเล่น 2: ปุ่มสว่างและขยายร่างนิดๆ */
         .btn:hover {
             background-color: var(--secondary-color);
             box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
@@ -321,7 +380,6 @@
             margin-bottom: 1rem;
         }
 
-        /* ลูกเล่น 4: แอนิเมชันตอนเปิดหน้าเว็บให้ข้อมูลลอยขึ้นมาทีละส่วน */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -333,17 +391,18 @@
             }
         }
 
-        header, #about, #skills, #vision, #projects, #video-presentation {
+        header, #about, #skills, #vision, #game-projects, #content-projects, #other-projects, #video-presentation {
             animation: fadeInUp 1s ease-out forwards;
             opacity: 0;
         }
 
         header { animation-delay: 0.1s; }
-        #about { animation-delay: 0.3s; }
-        #skills { animation-delay: 0.5s; }
-        #vision { animation-delay: 0.6s; }
-        #projects { animation-delay: 0.7s; }
-        #video-presentation { animation-delay: 0.9s; }
+        #about { animation-delay: 0.2s; }
+        #skills { animation-delay: 0.3s; }
+        #vision { animation-delay: 0.4s; }
+        #game-projects { animation-delay: 0.5s; }
+        #content-projects { animation-delay: 0.6s; }
+        #video-presentation { animation-delay: 0.7s; }
 
         @media (max-width: 992px) {
             #about .about-content {
@@ -361,10 +420,30 @@
             .container { padding: 1rem; }
             section { padding: 3rem 0; }
             .section-title { font-size: 2rem; }
+            
+            /* ปรับเมนูด้านบนในมือถือให้เลื่อนซ้ายขวาได้ */
+            .nav-container {
+                gap: 1rem;
+                overflow-x: auto;
+                justify-content: flex-start;
+                white-space: nowrap;
+                padding-bottom: 5px;
+            }
         }
     </style>
 
 </head><body>
+
+<nav>
+    <div class="nav-container">
+        <a href="#about" class="nav-link">เกี่ยวกับผม</a>
+        <a href="#skills" class="nav-link">ทักษะ</a>
+        <a href="#game-projects" class="nav-link">ผลงานสร้างเกม</a>
+        <a href="#content-projects" class="nav-link">ผลงานคอนเทนต์</a>
+        <a href="#other-projects" class="nav-link">ผลงานอื่นๆ</a>
+    </div>
+</nav>
+
 <header>
 <div class="container">
 <h1>พงศธร ทองจุล (ปอ)</h1>
@@ -444,8 +523,9 @@
                 เพื่อนำทักษะด้านการพัฒนาเกม Unity และการสร้างคอนเทนต์ มาสร้างสรรค์ผลงานที่ไม่ใช่แค่ทำงานได้ดีทางเทคนิค แต่ยังสนุกและดึงดูดผู้ชม เป้าหมายของผมคือการเป็น Technical Creator ที่รอบด้านในอุตสาหกรรมสื่อและเกม
             </p>
 </section>
-<section id="projects">
-<h2 class="section-title">ผลงานของผม</h2>
+
+<section id="game-projects">
+<h2 class="section-title">ผลงานสร้างเกม (Game Development)</h2>
 <article class="project">
 <div class="project-header">
 <h3>Survival Top-Down Game Project</h3>
@@ -484,6 +564,10 @@
 </div>
 </div>
 </article>
+</section>
+
+<section id="content-projects">
+<h2 class="section-title">ผลงานคอนเทนต์ (Content Creator)</h2>
 <article class="project">
 <div class="project-header">
 <h3>Roblox Gaming Channel: PORGI CHANNEL</h3>
@@ -512,6 +596,13 @@
 </div>
 </div>
 </article>
+</section>
+
+<section id="other-projects">
+    <h2 class="section-title">ผลงานอื่นๆ (Other Works)</h2>
+    <div style="text-align: center; color: var(--text-muted-color);">
+        <p>กำลังอัปเดตผลงานเพิ่มเติม...</p>
+    </div>
 </section>
 
 <section id="video-presentation" class="container">
