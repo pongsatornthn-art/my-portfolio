@@ -267,6 +267,12 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* YouTube Hover Override */
+        .youtube-project:hover {
+            border-color: rgba(255, 0, 0, 0.5) !important;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2) !important;
+        }
+
         /* --- Responsive --- */
         @media (max-width: 992px) {
             .hero { flex-direction: column; text-align: center; padding: 2rem 1rem; }
@@ -291,6 +297,8 @@
         <a href="#about" class="nav-link">ข้อมูลส่วนตัว</a>
         <a href="#skills" class="nav-link">ทักษะสเตตัส</a>
         <a href="#game-projects" class="nav-link">โปรเจกต์เกม</a>
+        <!-- เพิ่มเมนูลิงก์มาที่หมวด YouTube -->
+        <a href="#content-creator" class="nav-link">ครีเอเตอร์</a>
     </div>
 </nav>
 
@@ -379,6 +387,32 @@
                     <figure><img src="game1.png" alt="Unity Editor View"></figure>
                     <figure><img src="game2.png" alt="UI Design"></figure>
                     <figure class="main-visual"><img src="game3.png" alt="C# Script"></figure>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- แทรก Section YouTube ไว้ตรงนี้ -->
+    <section id="content-creator" class="reveal">
+        <h2 class="section-title">คอนเทนต์ครีเอเตอร์ (Content Creator)</h2>
+        <article class="project youtube-project" style="border-color: #ff0000;">
+            <div class="project-header">
+                <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 0.5rem;">YouTube Channel: porgichannel489</h3>
+                <div class="project-tags">
+                    <span style="border-color: #ff0000; color: #ff0000; background-color: rgba(255, 0, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.2);">11K+ Subscribers</span>
+                    <span style="border-color: #ff0000; color: #ff0000; background-color: rgba(255, 0, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.2);">Gaming Content</span>
+                    <span style="border-color: #ff0000; color: #ff0000; background-color: rgba(255, 0, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.2);">Video Production</span>
+                </div>
+            </div>
+            <div class="project-content" style="grid-template-columns: 1fr;">
+                <div class="project-description">
+                    <p style="margin-bottom: 1rem;">ช่องยูทูบที่สร้างสรรค์คอนเทนต์เกี่ยวกับเกมเพลย์และการแคสต์เกม ซึ่งช่วยให้ผมมีความเข้าใจอย่างลึกซึ้งในด้าน <strong>Player Psychology (จิตวิทยาผู้เล่น)</strong> และ <strong>Game Pacing (จังหวะของเกม)</strong></p>
+                    <ul>
+                        <li><strong>Community Management:</strong> บริหารจัดการช่องและสร้างปฏิสัมพันธ์กับฐานคนดูมากกว่า 11,000 คน</li>
+                        <li><strong>Content Planning:</strong> วางแผนสคริปต์ ถ่ายทำ และตัดต่อวิดีโอด้วยตนเองทั้งหมด</li>
+                        <li><strong>Trend Analysis:</strong> วิเคราะห์ข้อมูลหลังบ้าน (Analytics) เพื่อปรับปรุงคอนเทนต์ให้ตอบโจทย์อัลกอริทึมและผู้ชม</li>
+                    </ul>
+                    <a href="https://www.youtube.com/@porgichannel489" target="_blank" class="btn" style="border-color: #ff0000; color: #ff0000; margin-top: 1.5rem;">เข้าชมช่อง YouTube</a>
                 </div>
             </div>
         </article>
