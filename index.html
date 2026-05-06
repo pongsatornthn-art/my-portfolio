@@ -273,6 +273,12 @@
             box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2) !important;
         }
 
+        /* Snapchat Hover Override */
+        .snapchat-project:hover {
+            border-color: rgba(255, 252, 0, 0.8) !important;
+            box-shadow: 0 10px 30px rgba(255, 252, 0, 0.2) !important;
+        }
+
         /* --- Responsive --- */
         @media (max-width: 992px) {
             .hero { flex-direction: column; text-align: center; padding: 2rem 1rem; }
@@ -296,7 +302,7 @@
         <a href="#home" class="nav-link">หน้าแรก</a>
         <a href="#about" class="nav-link">ข้อมูลส่วนตัว</a>
         <a href="#skills" class="nav-link">ทักษะสเตตัส</a>
-        <a href="#game-projects" class="nav-link">โปรเจกต์เกม</a>
+        <a href="#game-projects" class="nav-link">โปรเจกต์เกม & AR</a>
         <!-- เพิ่มเมนูลิงก์มาที่หมวด YouTube -->
         <a href="#content-creator" class="nav-link">ครีเอเตอร์</a>
     </div>
@@ -307,8 +313,8 @@
     <section id="home" class="hero reveal">
         <div class="hero-content">
             <h1>พงศธร ทองจุล</h1>
-            <p class="subtitle">Game Developer</p>
-            <p>นักศึกษาปี 3 ม.ศรีปทุม สาขาการออกแบบอินเทอร์แอคทีฟและเกม ผมเป็นนักพัฒนาที่หลงใหลในการเขียนโค้ดด้วย Unity พร้อมลุยงานท้าทายเพื่ออัปเวลสกิลของตัวเองในโลกอุตสาหกรรมเกม</p>
+            <p class="subtitle">Game & Interactive Developer</p>
+            <p>นักศึกษาปี 3 ม.ศรีปทุม สาขาการออกแบบอินเทอร์แอคทีฟและเกม ผมเป็นนักพัฒนาที่หลงใหลในการสร้างประสบการณ์โต้ตอบ (Interactive) ด้วย Unity และเทคโนโลยี AR</p>
             <a href="#game-projects" class="btn">ดูผลงาน (Start Game)</a>
         </div>
         <div class="hero-image-container">
@@ -349,6 +355,8 @@
                 <div class="skill-tags">
                     <span>Unity Engine</span>
                     <span>C# Programming</span>
+                    <span>AR (Augmented Reality)</span>
+                    <span>Snapchat Lens Studio</span>
                     <span>Video Editing (Premiere / CapCut)</span>
                 </div>
             </div>
@@ -365,8 +373,11 @@
         </div>
     </section>
 
+    <!-- รวมหมวดหมู่เกมและ AR ไว้ใน Section เดียวกัน -->
     <section id="game-projects" class="reveal">
-        <h2 class="section-title">ผลงานสร้างเกม (Game Dev)</h2>
+        <h2 class="section-title">ผลงานสร้างเกม และ AR (Projects)</h2>
+        
+        <!-- โปรเจกต์ที่ 1: เกม -->
         <article class="project">
             <div class="project-header">
                 <h3>Survival Top-Down Project</h3>
@@ -390,6 +401,35 @@
                 </div>
             </div>
         </article>
+
+        <!-- โปรเจกต์ที่ 2: AR Snapchat (ย้ายเข้ามาอยู่ใน <section> นี้แล้ว) -->
+        <article class="project snapchat-project" style="border-color: #FFFC00;">
+            <div class="project-header">
+                <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 0.5rem;">Snapchat AR Lens</h3>
+                <div class="project-tags">
+                    <span style="border-color: #FFFC00; color: #FFFC00; background-color: rgba(255, 252, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 252, 0, 0.2);">Augmented Reality (AR)</span>
+                    <span style="border-color: #FFFC00; color: #FFFC00; background-color: rgba(255, 252, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 252, 0, 0.2);">Lens Studio</span>
+                    <span style="border-color: #FFFC00; color: #FFFC00; background-color: rgba(255, 252, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 252, 0, 0.2);">Interactive Design</span>
+                </div>
+            </div>
+            <div class="project-content">
+                <div class="project-description">
+                    <p style="margin-bottom: 1rem;">ผลงานออกแบบและพัฒนา AR Filter สำหรับใช้งานบนแพลตฟอร์ม Snapchat สร้างประสบการณ์ Interactive ให้กับผู้ใช้งาน</p>
+                    <ul>
+                        <li><strong>AR Development:</strong> พัฒนาลูกเล่น AR แบบเรียลไทม์ที่สามารถตอบสนองกับใบหน้า หรือตรวจจับสภาพแวดล้อมได้</li>
+                        <li><strong>Lens Studio:</strong> ใช้งานเครื่องมือ Snapchat Lens Studio ในการจัดวาง 3D Object และสร้าง Logic การโต้ตอบ</li>
+                        <li><strong>User Experience:</strong> ออกแบบประสบการณ์การใช้งานที่สนุก เข้าถึงง่าย และเหมาะสมกับพฤติกรรมผู้ใช้โซเชียลมีเดีย</li>
+                    </ul>
+                    <!-- ปุ่มกดวาร์ปไปดูคลิป Shorts -->
+                    <a href="https://www.youtube.com/shorts/wjsFg4JauWM" target="_blank" class="btn" style="border-color: #FFFC00; color: #FFFC00; margin-top: 1.5rem;">▶️ ชมคลิปผลงาน AR (Shorts)</a>
+                </div>
+                <div class="project-visuals" style="display: flex; justify-content: center;">
+                    <!-- ฝังคลิป YouTube Shorts ลงในเว็บ -->
+                    <iframe width="280" height="498" src="https://www.youtube.com/embed/wjsFg4JauWM" title="Snapchat AR Lens Preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; border: 2px solid rgba(255, 252, 0, 0.5); box-shadow: 0 0 20px rgba(255, 252, 0, 0.2);"></iframe>
+                </div>
+            </div>
+        </article>
+
     </section>
 
     <!-- แทรก Section YouTube ไว้ตรงนี้ -->
@@ -429,7 +469,7 @@
 
 <footer>
     <div class="container">
-        <p style="color: var(--text-muted-color);">© 2026 Pongsatorn Thongjul. All Rights Reserved. <br>Designed for Game Industry.</p>
+        <p style="color: var(--text-muted-color);">© 2026 Pongsatorn Thongjul. All Rights Reserved. <br>Designed for Game & Interactive Industry.</p>
     </div>
 </footer>
 
@@ -449,33 +489,6 @@
         hiddenElements.forEach((el) => observer.observe(el));
     });
 </script>
-    <!-- โปรเจกต์ที่ 2: AR Snapchat -->
-        <article class="project snapchat-project" style="border-color: #FFFC00;">
-            <div class="project-header">
-                <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 0.5rem;">Snapchat AR Lens</h3>
-                <div class="project-tags">
-                    <span style="border-color: #FFFC00; color: #FFFC00; background-color: rgba(255, 252, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 252, 0, 0.2);">Augmented Reality (AR)</span>
-                    <span style="border-color: #FFFC00; color: #FFFC00; background-color: rgba(255, 252, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 252, 0, 0.2);">Lens Studio</span>
-                    <span style="border-color: #FFFC00; color: #FFFC00; background-color: rgba(255, 252, 0, 0.1); box-shadow: inset 0 0 5px rgba(255, 252, 0, 0.2);">Interactive Design</span>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-description">
-                    <p style="margin-bottom: 1rem;">ผลงานออกแบบและพัฒนา AR Filter สำหรับใช้งานบนแพลตฟอร์ม Snapchat สร้างประสบการณ์ Interactive ให้กับผู้ใช้งาน</p>
-                    <ul>
-                        <li><strong>AR Development:</strong> พัฒนาลูกเล่น AR แบบเรียลไทม์ที่สามารถตอบสนองกับใบหน้า หรือตรวจจับสภาพแวดล้อมได้</li>
-                        <li><strong>Lens Studio:</strong> ใช้งานเครื่องมือ Snapchat Lens Studio ในการจัดวาง 3D Object และสร้าง Logic การโต้ตอบ</li>
-                        <li><strong>User Experience:</strong> ออกแบบประสบการณ์การใช้งานที่สนุก เข้าถึงง่าย และเหมาะสมกับพฤติกรรมผู้ใช้โซเชียลมีเดีย</li>
-                    </ul>
-                    <!-- ปุ่มกดวาร์ปไปดูคลิป Shorts -->
-                    <a href="https://www.youtube.com/shorts/wjsFg4JauWM" target="_blank" class="btn" style="border-color: #FFFC00; color: #FFFC00; margin-top: 1.5rem;">▶️ ชมคลิปผลงาน AR (Shorts)</a>
-                </div>
-                <div class="project-visuals" style="display: flex; justify-content: center;">
-                    <!-- ฝังคลิป YouTube Shorts ลงในเว็บ -->
-                    <iframe width="280" height="498" src="https://www.youtube.com/embed/wjsFg4JauWM" title="Snapchat AR Lens Preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; border: 2px solid rgba(255, 252, 0, 0.5); box-shadow: 0 0 20px rgba(255, 252, 0, 0.2);"></iframe>
-                </div>
-            </div>
-        </article>
 
 </body>
 </html>
